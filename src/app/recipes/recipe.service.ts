@@ -9,8 +9,8 @@ export class RecipeService{
 recipesChanged=new Subject<Recipe[]>()
 
   private  recipes: Recipe[]=[
-        new Recipe('Thai','Delicious extravaganza','https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQWxDT6udBF3sCuxN3EqPh-cppdPFjFWmMhMA&usqp=CAU'
-        ,[new Ingredient('Tomato',3)])
+        // new Recipe('Thai','Delicious extravaganza','https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQWxDT6udBF3sCuxN3EqPh-cppdPFjFWmMhMA&usqp=CAU'
+        // ,[new Ingredient('Tomato',3)])
       ];
 
 constructor(private slService:ShoppingListService){}
@@ -25,6 +25,11 @@ return this.recipes.slice()[index]
 
 addIngredientsToShoppingList(ingredients:Ingredient[]){
 this.slService.addIngredients(ingredients)
+}
+
+setRecipes(recipes:Recipe[]){
+this.recipes=recipes;
+this.recipesChanged.next(this.recipes.slice())
 }
 
 addRecipe(recipe:Recipe){
