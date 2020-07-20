@@ -24,6 +24,9 @@ private igChangeSub:Subscription
     })
   }
 
+  onEditItem(index:number){
+    this.slService.startedEditing.next(index)
+  }
 
 
 }
